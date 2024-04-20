@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Homepage(),
     );
@@ -45,7 +45,7 @@ class _HomepageState extends State<Homepage> {
               padding: const EdgeInsets.all(28.0),
               child: TextField(
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   hintText: "Enter Mobile Number"
                 ),
@@ -54,12 +54,16 @@ class _HomepageState extends State<Homepage> {
             ),
             const SizedBox(height: 16,),
             ElevatedButton(
-              onPressed: () => makeCall('+91${_numberController.text}'),
-              child: Text('Call Now'),
+              onPressed: () {
+                makeCall('+91${_numberController.text}');
+              },
+              child: const Text('Call Now'),
             ),
             ElevatedButton(
-              onPressed: () => sendSMS('+91${_numberController.text}', 'Start typing...'),
-              child: Text('Send SMS'),
+              onPressed: () {
+                sendSMS('+91${_numberController.text}', 'Start typing...');
+              },
+              child: const Text('Send SMS'),
             ),
 
           ],
