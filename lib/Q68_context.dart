@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyListView(),
     );
@@ -58,7 +58,7 @@ class _MyListViewState extends State<MyListView> {
   void handleMenuOption(int index, String value) {
     switch (value) {
       case 'edit':
-        _editItem(index);
+        editItem(index);
         break;
       case 'view':
         viewItem(index);
@@ -70,7 +70,7 @@ class _MyListViewState extends State<MyListView> {
     }
   }
 
-  Future _editItem(int index) {
+  Future editItem(int index) {
     final name = items[index];
     itemController.text = name;
     return showDialog(

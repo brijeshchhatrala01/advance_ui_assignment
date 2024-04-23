@@ -45,19 +45,28 @@ Widget buildAppBar() {
 }
 
 Widget buildFoodFilter() {
+  List<String> foodFilter = [
+    'Pizza',
+    'Burger',
+    'Punjabi',
+    'North Indian',
+    'South Indian',
+    'Chiniese'
+  ];
   return SizedBox(
     height: 50,
     child: ListView.builder(
+      shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       physics: const BouncingScrollPhysics(),
-      itemCount: 12,
+      itemCount: foodFilter.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: ChoiceChip(
             showCheckmark: false,
-            label: Text('Index $index'),
-            selected: false,
+            label: Text(foodFilter[index]),
+            selected: true,
             selectedColor: Colors.yellow,
             onSelected: (value) {},
           ),
@@ -68,17 +77,6 @@ Widget buildFoodFilter() {
 }
 
 Widget buildFoodList(CartModel? cartModel, BuildContext context) {
-  // List imageList = [
-  //   'assets/images/dish1.png',
-  //   'assets/images/dish2.png',
-  //   'assets/images/dish3.png',
-  //   'assets/images/dish4.png',
-  //   'assets/images/ingre1.png',
-  //   'assets/images/ingre2.png',
-  //   'assets/images/ingre3.png',
-  //   'assets/images/ingre4.png',
-  //   'assets/images/res_logo.png',
-  // ];
   return Expanded(
       child: GridView.count(
     crossAxisCount: 2,
